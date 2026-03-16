@@ -1,302 +1,312 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veekshitha Chowdary | Portfolio</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-navy: #020617;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
 
-<title>Veekshitha Chowdary | Portfolio</title>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-<style>
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 5vw, 40px);
+            padding: 20px;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
 
-body{
-font-family: 'Segoe UI', sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
-}
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
 
-nav{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-background:#020617;
-position:sticky;
-top:0;
-}
+        nav a:hover {
+            color: var(--accent);
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-bottom: 1px solid #1e293b;
+        }
 
-nav a:hover{
-color:#38bdf8;
-}
+        header h1 {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-header{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-}
+        header p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
 
-header h1{
-font-size:42px;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-navy);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
 
-.section{
-padding:60px 10%;
-}
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-transition:0.3s;
-}
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
 
-.card:hover{
-transform:translateY(-8px);
-background:#334155;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-.skills span{
-background:#1e293b;
-padding:8px 14px;
-margin:5px;
-display:inline-block;
-border-radius:8px;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-button{
-background:#38bdf8;
-border:none;
-padding:10px 18px;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-}
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
 
-button:hover{
-background:#0ea5e9;
-}
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
 
-footer{
-text-align:center;
-padding:30px;
-background:#020617;
-}
+        .skill-group {
+            margin-bottom: 30px;
+        }
 
-</style>
+        .skill-group h4 {
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
 
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-container span {
+            background: #334155;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #475569;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            padding: 15px;
+            background: #1e293b;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .achievements-list li::before {
+            content: "🏆";
+            margin-right: 15px;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--bg-navy);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 60px 5%; }
+            nav { gap: 15px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <nav>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#achievements">Achievements</a>
-<a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <header>
-
-<h1>V Veekshitha Chowdary</h1>
-
-<p>
-Computer Science Student | Machine Learning | Blockchain | NLP
-</p>
-
+    <h1>Veekshitha Chowdary</h1>
+    <p>Computer Science Student | ML & Blockchain Researcher | Full Stack Developer</p>
+    <a href="#" class="btn-primary">Download Resume</a>
 </header>
 
-
 <section id="about" class="section">
-
-<h2>About Me</h2>
-
-<p>
-Computer Science student at Madanapalle Institute of Technology & Science
-with a GPA of 9.4. Passionate about building intelligent systems using
-Machine Learning, Blockchain, and AI-driven automation.
-</p>
-
+    <h2>About Me</h2>
+    <p>
+        I am a Computer Science student at Madanapalle Institute of Technology & Science (CGPA: 9.4). 
+        I specialize in building intelligent systems that bridge the gap between <strong>Machine Learning</strong> 
+        and <strong>Blockchain</strong> technology. Currently focused on developing decentralized solutions 
+        for real-world industrial challenges.
+    </p>
 </section>
-
 
 <section id="projects" class="section">
-
-<h2>Projects</h2>
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>Synthetix AI</h3>
-
-<p>
-AutoML pipeline predicting material structural strength using
-XGBoost and Random Forest achieving R² > 0.95.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Digital Twin for Sustainable Construction</h3>
-
-<p>
-Simulation tool using Gradio and Cubic Spline interpolation
-to analyze recycled mortar performance with Explainable AI.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>BlockVote – Decentralized Voting Protocol</h3>
-
-<p>
-Secure voting DApp built with Solidity ensuring transparent
-election tracking using smart contracts.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Misoko Image Validation System</h3>
-
-<p>
-AI-based forensic system for validating product images and
-detecting manipulated or synthetic images in online marketplaces.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Blockchain Certificate Registry</h3>
-
-<p>
-Decentralized system to issue and verify academic certificates
-using blockchain to prevent document forgery.
-</p>
-
-</div>
-
-</div>
-
+    <h2>Featured Projects</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Synthetix AI</h3>
+            <p>End-to-end AutoML pipeline for material structural strength prediction. Achieved R² > 0.95 using Random Forest and XGBoost.</p>
+        </div>
+        <div class="card">
+            <h3>Digital Twin Platform</h3>
+            <p>XAI-driven simulation for sustainable construction. Uses Cubic Spline interpolation to optimize recycled mortar performance.</p>
+        </div>
+        <div class="card">
+            <h3>BlockVote</h3>
+            <p>Decentralized voting protocol built with Solidity v0.8.19. Features secure smart contracts for transparent election tracking.</p>
+        </div>
+        <div class="card">
+            <h3>Misoko Forensic AI</h3>
+            <p>Image validation system for online marketplaces, detecting synthetic and manipulated product photos using Deep Learning.</p>
+        </div>
+    </div>
 </section>
-
 
 <section id="skills" class="section">
+    <h2>Technical Skills</h2>
+    
+    <div class="skill-group">
+        <h4>Languages & Core</h4>
+        <div class="skills-container">
+            <span>Python</span> <span>Solidity</span> <span>JavaScript</span> <span>C</span> <span>MySQL</span>
+        </div>
+    </div>
 
-<h2>Skills</h2>
+    <div class="skill-group">
+        <h4>AI & Data Science</h4>
+        <div class="skills-container">
+            <span>Machine Learning</span> <span>NLP</span> <span>NumPy</span> <span>Pandas</span> <span>Scikit-Learn</span> <span>Computer Vision</span>
+        </div>
+    </div>
 
-<div class="skills">
-
-<span>Python</span>
-<span>C</span>
-<span>Solidity</span>
-<span>Machine Learning</span>
-<span>NLP</span>
-<span>NumPy</span>
-<span>Pandas</span>
-<span>Scikit-Learn</span>
-<span>MySQL</span>
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-
-</div>
-
+    <div class="skill-group">
+        <h4>Web & Tools</h4>
+        <div class="skills-container">
+            <span>MERN Stack</span> <span>HTML/CSS</span> <span>Git</span> <span>Gradio</span> <span>IPFS/Pinata</span>
+        </div>
+    </div>
 </section>
-
 
 <section id="achievements" class="section">
-
-<h2>Achievements</h2>
-
-<ul>
-
-<li>150+ Problems Solved on LeetCode</li>
-
-<li>5⭐ Python and 3⭐ SQL on HackerRank</li>
-
-<li>2nd Place – Crack the Code (GMOCS)</li>
-
-<li>2nd Place – Coding Challenge (AURA)</li>
-
-<li>Copyright Filed for Digital Twin Framework</li>
-
-</ul>
-
+    <h2>Achievements</h2>
+    <ul class="achievements-list">
+        <li>150+ LeetCode problems solved (Focus on DSA)</li>
+        <li>Copyright Filed for Digital Twin Framework for Construction Waste</li>
+        <li>2nd Place – Crack the Code (GMOCS) & Aura Coding Challenge</li>
+        <li>5⭐ Python Specialist on HackerRank</li>
+    </ul>
 </section>
-
 
 <section id="contact" class="section">
-
-<h2>Contact</h2>
-
-<p>Email: veekshithachowdary2005@gmail.com</p>
-
-<p>
-GitHub:
-<a href="https://github.com/Veekshitha1711" target="_blank">
-github.com/Veekshitha1711
-</a>
-</p>
-
-<p>
-LinkedIn:
-<a href="https://www.linkedin.com/in/veekshithachowdary/" target="_blank">
-LinkedIn Profile
-</a>
-</p>
-
+    <div class="contact-info">
+        <h2>Get In Touch</h2>
+        <p>Email: <a href="mailto:veekshithachowdary2005@gmail.com">veekshithachowdary2005@gmail.com</a></p>
+        <div style="margin-top: 20px;">
+            <a href="https://github.com/Veekshitha1711" target="_blank">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/veekshithachowdary/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
 </section>
 
-
 <footer>
-
-<p>© 2026 Veekshitha Chowdary</p>
-
+    <p>© 2026 Veekshitha Chowdary | Built with Passion & Code</p>
 </footer>
 
-
 <script>
-
-document.querySelectorAll("nav a").forEach(link => {
-
-link.addEventListener("click", function(e){
-
-e.preventDefault()
-
-document.querySelector(this.getAttribute("href")).scrollIntoView({
-
-behavior:"smooth"
-
-})
-
-})
-
-})
-
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 </script>
 
 </body>
-
 </html>
