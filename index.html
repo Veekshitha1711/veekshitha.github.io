@@ -1,474 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V Veekshitha Chowdary | Portfolio</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-navy: #020617;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
 
-<title>Veekshitha Chowdary | Portfolio</title>
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-<style>
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 18px;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
 
-:root{
---bg-dark:#0f172a;
---bg-navy:#020617;
---card-bg:#1e293b;
---accent:#38bdf8;
---text-main:#f8fafc;
---text-dim:#94a3b8;
-}
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
 
-body{
-font-family:'Segoe UI',Roboto,Arial;
-margin:0;
-background:var(--bg-dark);
-color:var(--text-main);
-line-height:1.6;
-}
+        nav a:hover { color: var(--accent); }
 
-nav{
-display:flex;
-justify-content:center;
-gap:30px;
-padding:18px;
-background:rgba(2,6,23,0.9);
-backdrop-filter:blur(8px);
-position:sticky;
-top:0;
-z-index:1000;
-border-bottom:1px solid #334155;
-}
+        header {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-bottom: 1px solid #1e293b;
+        }
 
-nav a{
-color:var(--text-main);
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-nav a:hover{
-color:var(--accent);
-}
+        header p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
 
-header{
-text-align:center;
-padding:100px 20px;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-border-bottom:1px solid #1e293b;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: #020617;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
 
-header h1{
-font-size:3rem;
-margin-bottom:10px;
-background:linear-gradient(to right,#fff,var(--accent));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+        }
 
-header p{
-color:var(--text-dim);
-font-size:1.2rem;
-margin-bottom:25px;
-}
+        .btn-outline {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
 
-.btn-primary{
-background:var(--accent);
-color:#020617;
-border:none;
-padding:12px 22px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-text-decoration:none;
-display:inline-block;
-transition:0.3s;
-}
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg-navy);
+        }
 
-.btn-primary:hover{
-background:#7dd3fc;
-transform:translateY(-2px);
-box-shadow:0 5px 18px rgba(56,189,248,0.3);
-}
+        .section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-.section{
-padding:80px 10%;
-max-width:1200px;
-margin:auto;
-}
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
 
-h2{
-font-size:2rem;
-margin-bottom:40px;
-border-left:4px solid var(--accent);
-padding-left:15px;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.card{
-background:var(--card-bg);
-padding:28px;
-border-radius:16px;
-border:1px solid #334155;
-transition:0.3s;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.card:hover{
-transform:translateY(-10px);
-border-color:var(--accent);
-box-shadow:0 0 25px rgba(56,189,248,0.25);
-}
+        .card h3 { color: var(--accent); margin-top: 0; }
 
-.card h3{
-color:var(--accent);
-margin-top:0;
-}
+        .skill-group { margin-bottom: 35px; }
+        .skill-group h4 {
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+        }
 
-.skill-group{
-margin-bottom:30px;
-}
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skills-container span {
+            background: #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #475569;
+            font-size: 0.85rem;
+        }
 
-.skill-group h4{
-color:var(--text-dim);
-margin-bottom:10px;
-font-size:0.9rem;
-letter-spacing:1px;
-}
+        .list-style { list-style: none; padding: 0; }
+        .list-style li {
+            background: #1e293b;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .list-style li:hover { border-color: #334155; background: #243147; }
+        .list-style li::before { content: "▹"; color: var(--accent); margin-right: 15px; font-weight: bold; }
 
-.skills-container{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
+        .contact-box {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
 
-.skills-container span{
-background:#334155;
-padding:8px 14px;
-border-radius:20px;
-border:1px solid #475569;
-font-size:0.9rem;
-}
+        .contact-box a { color: var(--accent); text-decoration: none; margin: 0 12px; font-weight: 600; }
 
-.achievements-list{
-list-style:none;
-padding:0;
-}
+        footer { text-align: center; padding: 40px; background: #020617; color: var(--text-dim); font-size: 0.85rem; }
 
-.achievements-list li{
-background:#1e293b;
-padding:14px;
-border-radius:8px;
-margin-bottom:10px;
-display:flex;
-align-items:center;
-}
-
-.achievements-list li::before{
-content:"🏆";
-margin-right:12px;
-}
-
-.contact-box{
-background:#1e293b;
-padding:40px;
-border-radius:15px;
-text-align:center;
-}
-
-.contact-box a{
-color:var(--accent);
-text-decoration:none;
-margin:0 10px;
-}
-
-footer{
-text-align:center;
-padding:35px;
-background:#020617;
-color:var(--text-dim);
-}
-
-</style>
+        @media (max-width: 768px) {
+            nav { gap: 10px; flex-wrap: wrap; }
+            .section { padding: 60px 5%; }
+        }
+    </style>
 </head>
-
 <body>
 
 <nav>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#achievements">Achievements</a>
-<a href="#certifications">Certifications</a>
-<a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <header>
-
-<h1>V Veekshitha Chowdary</h1>
-
-<p>Computer Science Student | Machine Learning | Blockchain | Full Stack Developer</p>
-
-<a href="Veekshitha_Resume_compressed.pdf" class="btn-primary" download>Download Resume</a>
-
+    <h1>V Veekshitha Chowdary</h1>
+    <p>Computer Science Student | ML Engineer | Blockchain Developer</p>
+    <a href="Veekshitha_Resume_compressed.pdf" download="Veekshitha_Chowdary_Resume" class="btn-primary">Download Resume</a>
 </header>
 
 <section id="about" class="section">
-
-<h2>About Me</h2>
-
-<p>
-
-Computer Science student at Madanapalle Institute of Technology & Science (CGPA 9.4).
-Passionate about building intelligent systems combining Machine Learning,
-Blockchain, and decentralized technologies to solve real-world problems.
-
-</p>
-
+    <h2>About Me</h2>
+    <p>
+        Currently pursuing Computer Science at Madanapalle Institute of Technology & Science with a <strong>CGPA of 8.48/10</strong>. 
+        I am a developer and researcher focused on high-impact AI systems and decentralized protocols. My work ranges from 
+        <strong>AutoML pipelines</strong> for material science to <strong>Decentralized Voting</strong> systems.
+    </p>
 </section>
 
 <section id="experience" class="section">
-
-<h2>Experience</h2>
-
-<div class="card">
-
-<h3>Technical Content Writer — Similar Geeks</h3>
-
-<p>
-
-Developed and optimized 100+ algorithm implementations in Python and C
-focused on advanced Data Structures & Algorithms.
-Designed SQL tutorials and database schemas for a global developer audience
-while performing debugging and code reviews.
-
-</p>
-
-</div>
-
+    <h2>Experience</h2>
+    <div class="card">
+        <h3>Technical Content Writer — Similar Geeks</h3>
+        <p>
+            Authored 100+ technical implementations focusing on <strong>Advanced DSA</strong> and SQL. 
+            I translate complex algorithms into optimized Python/C code and design database schemas for global developer resources.
+        </p>
+    </div>
 </section>
 
 <section id="projects" class="section">
-
-<h2>Featured Projects</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>Synthetix AI</h3>
-
-<p>
-
-AutoML pipeline predicting material structural strength using
-Random Forest and XGBoost achieving R² > 0.95.
-
-</p>
-
-<a href="https://github.com/Veekshitha1711" class="btn-primary" target="_blank">View Code</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>Digital Twin for Sustainable Construction</h3>
-
-<p>
-
-Simulation platform using Gradio and Cubic Spline interpolation
-with Explainable AI (SHAP) to evaluate recycled mortar performance.
-
-</p>
-
-<a href="https://github.com/Veekshitha1711" class="btn-primary" target="_blank">View Code</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>BlockVote</h3>
-
-<p>
-
-Secure decentralized voting protocol built using Solidity smart contracts
-providing transparent election tracking.
-
-</p>
-
-<a href="https://github.com/Veekshitha1711" class="btn-primary" target="_blank">View Code</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>Misoko Image Validation</h3>
-
-<p>
-
-AI-based forensic system detecting manipulated and synthetic
-product images to prevent marketplace fraud.
-
-</p>
-
-<a href="https://github.com/Veekshitha1711" class="btn-primary" target="_blank">View Code</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>Blockchain Certificate Registry</h3>
-
-<p>
-
-Decentralized certificate verification platform storing credential hashes
-on Ethereum blockchain with IPFS document storage.
-
-</p>
-
-<a href="https://github.com/Veekshitha1711" class="btn-primary" target="_blank">View Code</a>
-
-</div>
-
-</div>
-
+    <h2>Featured Projects</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Synthetix AI</h3>
+            <p>End-to-end AutoML pipeline predicting structural strength with R² > 0.95 using Random Forest & XGBoost.</p>
+            <a href="https://github.com/Veekshitha1711" class="btn-outline" target="_blank">View Code</a>
+        </div>
+        <div class="card">
+            <h3>Sustainable Digital Twin</h3>
+            <p>Simulation platform for construction waste optimization using Cubic Spline interpolation and SHAP (Explainable AI).</p>
+            <a href="https://github.com/Veekshitha1711" class="btn-outline" target="_blank">View Code</a>
+        </div>
+        <div class="card">
+            <h3>BlockVote Protocol</h3>
+            <p>Decentralized voting DApp using Solidity v0.8.19. Features gas-optimized smart contracts for secure digital elections.</p>
+            <a href="https://github.com/Veekshitha1711" class="btn-outline" target="_blank">View Code</a>
+        </div>
+        <div class="card">
+            <h3>CertiChain Registry</h3>
+            <p>Blockchain-based academic registry utilizing <strong>IPFS</strong> and <strong>Pinata</strong> for immutable document verification.</p>
+            <a href="https://github.com/Veekshitha1711" class="btn-outline" target="_blank">View Code</a>
+        </div>
+    </div>
 </section>
 
 <section id="skills" class="section">
-
-<h2>Technical Skills</h2>
-
-<div class="skill-group">
-
-<h4>Languages</h4>
-
-<div class="skills-container">
-
-<span>Python</span>
-<span>C</span>
-<span>Solidity</span>
-<span>JavaScript</span>
-<span>SQL</span>
-
-</div>
-
-</div>
-
-
-<div class="skill-group">
-
-<h4>Machine Learning</h4>
-
-<div class="skills-container">
-
-<span>Machine Learning</span>
-<span>NLP</span>
-<span>NumPy</span>
-<span>Pandas</span>
-<span>Scikit-Learn</span>
-<span>Matplotlib</span>
-
-</div>
-
-</div>
-
-
-<div class="skill-group">
-
-<h4>Web & Blockchain</h4>
-
-<div class="skills-container">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>Git</span>
-<span>Ethereum</span>
-<span>Smart Contracts</span>
-
-</div>
-
-</div>
-
+    <h2>Technical Skills</h2>
+    <div class="skill-group">
+        <h4>Languages & Databases</h4>
+        <div class="skills-container">
+            <span>Python</span> <span>Solidity</span> <span>JavaScript</span> <span>C</span> <span>SQL</span> <span>MySQL</span>
+        </div>
+    </div>
+    <div class="skill-group">
+        <h4>AI & Machine Learning</h4>
+        <div class="skills-container">
+            <span>NLP</span> <span>Scikit-Learn</span> <span>NumPy</span> <span>Pandas</span> <span>Matplotlib</span> <span>Deep Learning</span>
+        </div>
+    </div>
+    <div class="skill-group">
+        <h4>Web & Blockchain</h4>
+        <div class="skills-container">
+            <span>MERN Stack</span> <span>Web3.py</span> <span>Ethereum</span> <span>IPFS</span> <span>Git</span> <span>Gradio</span>
+        </div>
+    </div>
 </section>
 
 <section id="achievements" class="section">
-
-<h2>Achievements</h2>
-
-<ul class="achievements-list">
-
-<li>150+ problems solved on LeetCode</li>
-<li>5⭐ Python and 3⭐ SQL on HackerRank</li>
-<li>2nd place — Crack the Code (GMOCS)</li>
-<li>2nd place — Coding Challenge (AURA)</li>
-<li>Copyright filed for Digital Twin algorithm</li>
-
-</ul>
-
+    <h2>Achievements</h2>
+    <ul class="list-style">
+        <li><strong>Copyright Filed:</strong> Digital Twin Platform for Construction Waste Optimization</li>
+        <li><strong>150+ Problems:</strong> Solved on LeetCode (Focus on Tree & Sliding Window)</li>
+        <li><strong>Rankings:</strong> 5⭐ Python Specialist on HackerRank</li>
+        <li><strong>Competition:</strong> 2nd Place – Crack the Code (GMOCS) & Aura Challenge</li>
+    </ul>
 </section>
 
 <section id="certifications" class="section">
-
-<h2>Certifications</h2>
-
-<ul class="achievements-list">
-
-<li>Quantum Fundamentals — Qubitech & WISER</li>
-<li>Blockchain Fundamentals — Cyfrin Updraft</li>
-<li>Solidity Smart Contract Development — Cyfrin</li>
-<li>DX Edge Industry Readiness Certification</li>
-
-</ul>
-
+    <h2>Certifications</h2>
+    <ul class="list-style">
+        <li>NPTEL: Introduction to Quantum Computing</li>
+        <li>Cyfrin Updraft: Blockchain & Solidity Smart Contract Development</li>
+        <li>Qubitech: Quantum Fundamentals</li>
+        <li>DX Edge: Industry Readiness Certification</li>
+    </ul>
 </section>
 
 <section id="contact" class="section">
-
-<div class="contact-box">
-
-<h2>Get In Touch</h2>
-
-<p>Email: <a href="mailto:veekshithachowdary2005@gmail.com">veekshithachowdary2005@gmail.com</a></p>
-
-<p>
-
-<a href="https://github.com/Veekshitha1711" target="_blank">GitHub</a> |
-<a href="https://www.linkedin.com/in/veekshithachowdary/" target="_blank">LinkedIn</a>
-
-</p>
-
-</div>
-
+    <div class="contact-box">
+        <h2>Get In Touch</h2>
+        <p>Currently seeking Summer 2026 Internships in AI or Web3.</p>
+        <p><a href="mailto:veekshithachowdary2005@gmail.com">veekshithachowdary2005@gmail.com</a></p>
+        <div style="margin-top: 25px;">
+            <a href="https://github.com/Veekshitha1711" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/veekshithachowdary/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
 </section>
 
 <footer>
-
-<p>© 2026 Veekshitha Chowdary | Built with Code</p>
-
+    <p>© 2026 V Veekshitha Chowdary | Engineered with Code</p>
 </footer>
-
-<script>
-
-document.querySelectorAll('nav a').forEach(anchor=>{
-anchor.addEventListener('click',function(e){
-
-e.preventDefault()
-
-document.querySelector(this.getAttribute('href')).scrollIntoView({
-behavior:'smooth'
-})
-
-})
-})
-
-</script>
 
 </body>
 </html>
